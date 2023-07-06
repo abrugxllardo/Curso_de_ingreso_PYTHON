@@ -47,13 +47,15 @@ class App(customtkinter.CTk):
         tipo = self.combobox_tipo.get()
 
         if edad >= 16 and tipo == "NATIVO":
-            alert(title= "Ejercicio 7", message= "Es posible que la persona concurra a votar")
+            mensaje = "Es posible que la persona concurra a votar"
         elif edad < 16:
-            alert(title= "Ejercicio 7", message= "No posible que la persona concurra a votar")
+            mensaje = "No posible que la persona concurra a votar"
         elif edad >= 18 and tipo == "NATURALIZADO":
-            alert(title= "Ejercicio 7", message= "Es posible que la persona concurra a votar")
+            mensaje = "Es posible que la persona concurra a votar"
         else:
-            alert(title= "Ejercicio 7", message= "No posible que la persona concurra a votar")
+            mensaje = "No posible que la persona concurra a votar"
+        
+        alert(title= "Ejercicio 7", message= mensaje)
 
        
     

@@ -34,20 +34,6 @@ class App(customtkinter.CTk):
         alert(title= "Ejercicio 9", message= num_random)
         
 
-#RANDOM
-#genera numeros aleatorios
-
-# import random
-
-# random_float = random.random()
-# print(random_float)
-#Solo entre cero y uno 
-#flotante
-
-# random_int = random.randint(1, 6)
-# print("El resultado del dado es: ", random_int)
-#numeros enteros
-
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

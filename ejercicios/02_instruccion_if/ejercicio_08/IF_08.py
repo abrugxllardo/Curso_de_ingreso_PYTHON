@@ -45,11 +45,13 @@ class App(customtkinter.CTk):
         estado_civil = self.combobox_estado_civil.get()
 
         if edad >= 18 and estado_civil == "Soltero":
-            alert(title="Ejercicio 8", message= "Es soltero y no es menor")
+            mensaje = "Es soltero y no es menor"
         elif edad >= 18 and estado_civil == "Casado":
-            alert(title="Ejercicio 8", message= "Es Casado y no es menor")  
+            mensaje = "Es Casado y no es menor"
         elif edad >= 18 and estado_civil == "Divorciado":
-            alert(title="Ejercicio 8", message= "Es divorciado y no es menor")
+            mensaje = "Es divorciado y no es menor"
+        
+        alert(title= "Ejercicio 8", message= mensaje)
         
         
     
