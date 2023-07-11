@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+"ABRIL GALLARDO"
 '''
 Todas las lámparas están  al mismo precio de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
@@ -38,8 +39,51 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        cant_lamparas = int(self.combobox_cantidad.get())
+        marca = self.combobox_marca.get()
+        importe = cant_lamparas * 800
+
+        if cant_lamparas >= 6:
+            porcentaje = importe * 50 /100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 5 and marca == "ArgentinaLuz":
+            porcentaje = importe * 40 / 100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 5 and marca != "ArgentinaLuz":
+            porcentaje = importe * 30 / 100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+            porcentaje = importe * 25 /100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 4 and marca == "JeLuz" or marca == "HazIluminacion" or marca == "Osram":
+            porcentaje = importe * 20 /100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 3 and marca == "ArgentinaLuz":
+            porcentaje = importe * 15 /100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 3 and marca == "FelipeLamparas":
+            porcentaje = importe * 10 /100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
+        elif cant_lamparas == 3 and marca == "JeLuz" or marca == "HazIluminacion" or marca == "Osram":
+            porcentaje = importe * 5 /100
+            descuento = importe - porcentaje
+            mensaje = f"El total a pagar es: {descuento}"
         
+        if descuento >= 4000:
+            desc_adicional = descuento * 5 /100
+            total = descuento - desc_adicional
+            mensaje = f"El total a pagar con el descuento adicional es: {total}"
+
+        alert(title= "Trabajo Practico 4", message= mensaje)
+            
+     
     
 if __name__ == "__main__":
     app = App()
