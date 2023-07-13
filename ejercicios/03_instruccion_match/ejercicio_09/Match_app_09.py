@@ -4,7 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+"Abril Gallardo"
 '''
 Una agencia de viajes cobra $15.000 por cada estadía como base. 
 Luego para calcular las tarifas total realiza el siguiente cálculo, 
@@ -52,8 +52,71 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        """ estaciones = self.combobox_estaciones.get()
+        destinos = self.combobox_destino.get()
+        precio_estadia = 15000
+        
+
+        match estaciones:
+            case "Invierno":
+                if destinos == "Bariloche":
+                    aumento = 20
+                elif destinos == "Cataratas" or destinos == "Cordoba":
+                    descuento = 10
+                else:
+                    descuento = 20
+            case "Verano":
+                if destinos == "Bariloche":
+                    descuento = 20
+                elif destinos == "Cataratas" or destinos == "Cordoba":
+                    aumento = 10
+                else:
+                    aumento = 20
+            case _:
+                if destinos != "Cordoba":
+                    aumento = 10
+
+        precio_descuento = precio_estadia - (precio_estadia * descuento / 100)
+        precio_aumento = precio_estadia + (precio_estadia * aumento / 100)
+
+        alert(title="Ejercicio 9", message= f"El precio total con descuento es: {precio_descuento}")
+        alert(title="Ejercicio 9", message= f"El precio total con aumento es: {precio_aumento}") """
             
+        estaciones = self.combobox_estaciones.get()
+        destinos = self.combobox_destino.get()
+        precio_estadia = 15000
+        
+
+        match estaciones:
+            case "Invierno":
+                if destinos == "Bariloche":
+                    precio_total = precio_estadia + (precio_estadia * 20 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+                elif destinos == "Cataratas" or destinos == "Cordoba":
+                    precio_total = precio_estadia - (precio_estadia * 10 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+                else:
+                    precio_total = precio_estadia - (precio_estadia * 20 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+            case "Verano":
+                if destinos == "Bariloche":
+                    precio_total = precio_estadia - (precio_estadia * 20 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+                elif destinos == "Cataratas" or destinos == "Cordoba":
+                    precio_total = precio_estadia + (precio_estadia * 10 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+                else:
+                    precio_total = precio_estadia + (precio_estadia * 20 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+            case _:
+                if destinos != "Cordoba":
+                    precio_total = precio_estadia + (precio_estadia * 10 /100)
+                    mensaje = f"El precio total es de: {precio_total}"
+                else:
+                    precio_total = precio_estadia
+                    mensaje = f"El precio total es de: {precio_total}"
+
+        alert(title= "Ejercicio 9", message= mensaje)
     
 if __name__ == "__main__":
     app = App()

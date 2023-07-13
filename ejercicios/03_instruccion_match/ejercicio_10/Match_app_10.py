@@ -4,7 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+"Abril gallardo"
 '''
 Una agencia de viajes nos pide informar si hacemos viajes a lugares según la estación del año. 
 En caso de hacerlo mostrar un alert con el mensaje “Se viaja”, 
@@ -42,8 +42,29 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
+        estaciones = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+
+        match estaciones:
+            case "Invierno":
+                if destino == "Bariloche":
+                    mensaje = "Se viaja"
+                else:
+                    mensaje = "No se viaja"
+            case "Verano":
+                if destino == "Cataratas" or destino == "Mar del plata":
+                    mensaje = "Se viaja"
+                else:
+                    mensaje = "No se viaja"
+            case "Primavera":
+                if destino != "Bariloche":
+                    mensaje = "Se viaja"
+                else:
+                    mensaje = "No se viaja"
+            case _:
+                mensaje = "Se viaja"
+        
+        alert(title="Ejercicio 10", message= mensaje)
     
 if __name__ == "__main__":
     app = App()

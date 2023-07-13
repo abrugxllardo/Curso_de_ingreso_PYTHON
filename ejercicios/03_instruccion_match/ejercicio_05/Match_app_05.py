@@ -4,7 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+"Abril Gallardo"
 '''
 Enunciado:
 Obtener la hora ingresada en el txt_hora. Al presionar el botón ‘Informar’ 
@@ -30,7 +30,19 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        hora = float(self.txt_hora.get())
+
+        match hora:
+            case 7 | 8 | 9 | 10 | 11:
+                mensaje = "Es de mañana"
+            case _:
+                mensaje = "Ya no es de mañana"
+
+        if hora <0 or hora > 24:
+            mensaje = "No existe tal hora"
+
+        alert(title="Ejercicio 5", message= mensaje)
+        
     
     
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+"Abril Gallardo"
 '''
 Enunciado:
 Obtener el destino seleccionado en el combobox_destino, luego al presionar el botón 
@@ -29,7 +29,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destino = self.combobox_destino.get()
+
+        match destino:
+            case "Bariloche" | "Ushuaia":
+                mensaje = "Hace frio en la mayoria de estaciones"
+            case "Mar del plata":
+                mensaje = "Puese hacer mucho frio y mucho calor"
+            case _:
+                mensaje = "Hace calor en la mayoria de las estaciones"
+
+        alert(title= "Ejercicio 8", message= mensaje)
     
     
 if __name__ == "__main__":
