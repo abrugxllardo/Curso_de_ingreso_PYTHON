@@ -4,7 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+# Abril Gallardo
 '''
 Enunciado:
 Al presionar el botón ‘Pedir clave’, solicitar al usuario que ingrese una contraseña mediante prompt. 
@@ -24,7 +24,10 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
-        pass
+        contraseña = prompt(title= "Contraseña", prompt= "Ingrese la contraseña: ")
+
+        while contraseña != "utn750":
+            contraseña = prompt(title= "Contraseña", prompt= "Error. Ingrese la contraseña nuevamente")
     
     
 if __name__ == "__main__":
