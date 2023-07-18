@@ -4,7 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+#Abril Gallardo
 '''
 Enunciado:
 Al presionar el botón ‘Validar número’, mediante prompt solicitar al usuario que ingrese un número. 
@@ -25,7 +25,10 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_numero_on_click(self):
-        pass
+        numero = int(prompt(title= "Ejercicio 4", prompt= "Ingrese un numero entre 0 y 9"))
+
+        while numero < 0 or numero > 9:
+            numero = int(prompt(title= "Ejercicio 4", prompt= "Error. Ingrese el numero nuevamente"))
     
 if __name__ == "__main__":
     app = App()
