@@ -25,10 +25,10 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
-        letra = prompt(title="Ejercicio 5", prompt= "Ingrese una letra U / T / N")
+        letra = prompt(title="Ejercicio 5", prompt= "Ingrese una letra U / T / N").upper()
 
-        while letra != "U" and letra != "T" and letra != "N":
-            letra = prompt(title="Ejercicio 5", prompt= "Error. Ingrese nuevamente")
+        while letra == None or letra.isalpha() == False or letra != "U" and letra != "T" and letra != "N":
+            letra = prompt(title="Ejercicio 5", prompt= "Error. Ingrese nuevamente").upper()
             
     
 if __name__ == "__main__":

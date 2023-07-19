@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+#Abril Gallardo
 '''
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera 
@@ -32,11 +33,32 @@ class App(customtkinter.CTk):
 
         self.btn_mostrar = customtkinter.CTkButton(
             master=self, text="Comenzar Ingreso", command=self.btn_comenzar_ingreso_on_click)
-        self.btn_mostrar.grid(row=2, padx=20, pady=20,
-                              columnspan=2, sticky="nsew")
+        self.btn_mostrar.grid(row=2, padx=20, pady=20, columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        respuesta= "Si"
+        bandera_primero = True
+
+        while respuesta != None:
+            numero = int(prompt(title="Ejercicio 9", prompt= "Ingrese un numero"))
+
+            if bandera_primero == True:
+                maximo = numero
+                minimo = numero
+                bandera_primero = False
+            else:
+                if numero < minimo:
+                    minimo = numero
+                if numero > maximo:
+                    maximo = numero
+
+            respuesta = prompt(title="Ejercicio 9", prompt= "Desea continuar?")
+
+        
+        self.txt_maximo.delete(0, 10000000)
+        self.txt_maximo.insert(0, maximo)
+        self.txt_minimo.delete(0, 10000000)
+        self.txt_minimo.insert(0, minimo)
 
 
 if __name__ == "__main__":

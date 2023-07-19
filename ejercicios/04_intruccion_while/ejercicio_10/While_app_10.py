@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+#Abril Gallardo
 '''
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario 
@@ -33,7 +34,29 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        respuesta = "Si"
+        acumulador_positivos = 0
+        acumulador_negativos = 0
+        contador_negativos = 0
+        contador_positivos = 0
+        contador_ceros = 0
+
+        while respuesta != None:
+            numero = int(prompt(title= "Ejercicio 10", prompt= "Ingrese un numero"))
+            if numero > 0:
+                acumulador_positivos += numero
+                contador_positivos += 1
+            elif numero < 0:
+                acumulador_negativos += numero
+                contador_negativos += 1
+            else:
+                contador_ceros += 1
+
+            diferencia = contador_positivos - contador_negativos
+
+            respuesta = prompt(title= "Ejercicio 10", prompt= "Desea continuar?")
+
+        alert(title="Ejercicio 10", message= f"La suma acumulada de los negativos: {acumulador_negativos}\nLa suma acumulada de los positivos:{acumulador_positivos}\nCantidad de números positivos ingresados: {contador_positivos}\nCantidad de números negativos ingresados: {contador_negativos}\nCantidad de ceros: {contador_ceros}\nDiferencia entre la cantidad de los números positivos ingresados y los negativos: {diferencia}")
 
     
 if __name__ == "__main__":

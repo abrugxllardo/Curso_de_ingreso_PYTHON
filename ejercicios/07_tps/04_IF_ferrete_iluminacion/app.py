@@ -39,7 +39,7 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        cant_lamparas = int(self.combobox_cantidad.get())
+        """ cant_lamparas = int(self.combobox_cantidad.get())
         marca = self.combobox_marca.get()
         importe = cant_lamparas * 800
 
@@ -81,9 +81,51 @@ class App(customtkinter.CTk):
             total = descuento - desc_adicional
             mensaje = f"El total a pagar con el descuento adicional es: {total}"
 
-        alert(title= "Trabajo Practico 4", message= mensaje)
+        alert(title= "Trabajo Practico 4", message= mensaje) """
             
-     
+
+
+
+        cant_lamparas = int(self.combobox_cantidad.get())
+        marca = self.combobox_marca.get()
+        importe = cant_lamparas * 800
+
+        match cant_lamparas:
+            case 1 | 2:
+                porcentaje = 1
+            case 5:
+                match marca:
+                    case "ArgentinaLuz":
+                        porcentaje = 0,6
+                    case _:
+                        porcentaje = 0,7
+            case 4:
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        porcentaje = 0,75
+                    case _:
+                        porcentaje = 0,8
+            case 3: 
+                match marca:
+                    case "ArgentinaLuz":
+                        porcentaje = 0,85
+                    case "FelipeLamparas":
+                        porcentaje = 0,9
+                    case _:
+                        porcentaje = 0,95
+            case _:
+                porcentaje = 0,5
+
+        precio_final =  importe * porcentaje 
+
+        if precio_final >= 4000:
+            desc_adicional = precio_final * 5 /100
+            total = precio_final - desc_adicional
+            mensaje = f"El total a pagar con el descuento adicional es: {total}"
+
+        alert(title= "Tp 4", message= mensaje)
+
+
     
 if __name__ == "__main__":
     app = App()

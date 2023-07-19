@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+#Abril Gallardo
 '''
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar 5 números mediante prompt. 
@@ -31,8 +32,21 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        ""
-        pass
+        contador = 0
+        acumulador = 0
+
+        while contador < 5:
+            numero = int(prompt(title= "Ejercicio 6", prompt= "Ingrese un numero"))
+
+            contador = contador + 1
+            acumulador = acumulador + numero
+
+        promedio = acumulador / contador
+
+        self.txt_suma_acumulada.delete(0, 10000)
+        self.txt_suma_acumulada.insert(0, acumulador)
+        self.txt_promedio.insert(0, promedio)
+        self.txt_promedio.delete(0, 10000)
 
     
 if __name__ == "__main__":
