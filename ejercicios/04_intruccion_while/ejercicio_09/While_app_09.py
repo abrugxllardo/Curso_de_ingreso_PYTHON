@@ -36,29 +36,50 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, padx=20, pady=20, columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        respuesta= "Si"
-        bandera_primero = True
-
-        while respuesta != None:
-            numero = int(prompt(title="Ejercicio 9", prompt= "Ingrese un numero"))
-
-            if bandera_primero == True:
-                maximo = numero
-                minimo = numero
-                bandera_primero = False
-            else:
-                if numero < minimo:
-                    minimo = numero
-                if numero > maximo:
-                    maximo = numero
-
-            respuesta = prompt(title="Ejercicio 9", prompt= "Desea continuar?")
-
+        # respuesta= "Si"
+        # bandera_primero = True
         
-        self.txt_maximo.delete(0, 10000000)
-        self.txt_maximo.insert(0, maximo)
-        self.txt_minimo.delete(0, 10000000)
-        self.txt_minimo.insert(0, minimo)
+        #numero = int(None)
+
+        # while respuesta != None:
+        #     numero = prompt(title="Ejercicio 9", prompt= "Ingrese un numero")
+        #     if numero is None or numero == "":
+        #         break
+        #     numero = int(numero)
+
+        #     if bandera_primero == True:
+        #         maximo = numero
+        #         minimo = numero
+        #         bandera_primero = False
+        #     else:
+        #         if numero < minimo:
+        #             minimo = numero
+        #         if numero > maximo:
+        #             maximo = numero
+
+        #respuesta = prompt(title="Ejercicio 9", prompt= "Desea continuar?")
+
+        bandera_numero = True
+
+        while True:
+            numero = prompt(title="Ejercicio 9", prompt= "Ingrese un numero")
+            if numero == None or numero == "":
+                break
+            numero = int(numero)
+
+            if bandera_numero or numero > maximo:
+                    maximo = numero
+            if bandera_numero or numero < minimo:
+                    minimo = numero
+                    bandera_numero = False
+
+
+        self.txt_maximo.delete(0, 'end')
+        self.txt_minimo.delete(0, 'end')
+
+        if not bandera_numero:
+            self.txt_maximo.insert(0, maximo)
+            self.txt_minimo.insert(0, minimo)
 
 
 if __name__ == "__main__":

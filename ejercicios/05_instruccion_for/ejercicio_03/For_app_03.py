@@ -29,7 +29,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        i = int(self.txt_repetir.get())
+        mensaje = "Hola UTN FRA"
+        for i in range(1,i + 1,1):
+            alert(title="Ejercicio 3", message= mensaje)
 
         
         

@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+#Abril Gallardo
 '''
 Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
 por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
@@ -50,8 +51,33 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt(title="TP5", prompt= "Ingrese su apellido")
+        while apellido.isalpha() == False or apellido == "" or len(apellido) < 3 or apellido == None:
+            apellido = prompt(title="TP5", prompt= "Error. Ingrese su apellido nuevamente")
 
+        edad = prompt(title="TP5", prompt= "Ingrese su edad")
+        while edad.isdigit() == False or edad == None or edad == "" or int(edad) < 18 or int(edad) > 90:
+            edad = prompt(title="TP5", prompt= "Error. Ingrese su edad nuevamente")
+
+        estado_civil = prompt(title= "TP5", prompt= "Ingrese su estado civil")
+        while estado_civil.isalpha() == False or estado_civil == "" or estado_civil != "Soltero/a" or estado_civil != "Casado/a" or estado_civil != "Divorciado/a" or estado_civil != "Viudo/a":
+            estado_civil = prompt(title= "TP5", prompt= "Error. Ingrese su estado civil nuevamente")
+
+        num_legajo = prompt(title= "TP5", prompt= "Ingrese su numero de legajo")
+        while num_legajo.isdigit() == False or edad == None or edad == "" or len(num_legajo) < 4 or len(num_legajo) > 4:
+            num_legajo = prompt(title="TP5", prompt= "Error. Ingrese su numero de legajo nuevamente")
+
+
+
+        self.txt_apellido.delete(0, 'end')
+        self.txt_edad.delete(0, 'end')
+        self.txt_legajo.delete(0, 'end')
+
+
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.insert(0, edad)
+        self.combobox_tipo.set(estado_civil)
+        self.txt_legajo.insert(0, num_legajo)
 
 if __name__ == "__main__":
     app = App()
