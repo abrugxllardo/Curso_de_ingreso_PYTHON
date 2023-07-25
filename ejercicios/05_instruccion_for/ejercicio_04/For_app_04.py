@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+#Abril Gallardo
 '''
 Al presionar el botón Mostrar pedir valores por prompt hasta que el usuario ingrese el valor 9 (se deberá utilizar 'BREAK').
 '''
@@ -21,9 +22,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        for i in range(999):
+            numero = prompt(title="Ejercicio 4", prompt="Ingrese un numero")
+            if int(numero) == 9:
+                break
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

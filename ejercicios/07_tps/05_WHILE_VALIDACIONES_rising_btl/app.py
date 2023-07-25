@@ -60,9 +60,11 @@ class App(customtkinter.CTk):
             edad = prompt(title="TP5", prompt= "Error. Ingrese su edad nuevamente")
 
         estado_civil = prompt(title= "TP5", prompt= "Ingrese su estado civil")
+        while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "viudo/a":
+            estado_civil = prompt(title= "TP5", prompt= "Error. Ingrese su estado civil nuevamente")
 
         num_legajo = prompt(title= "TP5", prompt= "Ingrese su numero de legajo")
-        while num_legajo.isdigit() == False or edad == None or edad == "" or len(num_legajo) < 4 or len(num_legajo) > 4:
+        while num_legajo.isdigit() == False or num_legajo == None or num_legajo == "" or len(num_legajo) < 1000 or len(num_legajo) > 9999:
             num_legajo = prompt(title="TP5", prompt= "Error. Ingrese su numero de legajo nuevamente")
 
 
