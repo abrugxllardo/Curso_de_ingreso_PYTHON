@@ -4,6 +4,7 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+#Abril Gallardo
 '''
 Al presionar el botón 'MÁXIMO' se analizará el vector lista_datos a efectos de determinar cuál es el número 
 más grande allí contenido el cual deberá ser informado utilizando Dialog Alert.
@@ -24,8 +25,15 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
-    
+        maximo = ''
+        for num in self.lista_datos:
+            if maximo == '':
+                maximo = num
+            elif maximo < num:
+                maximo = num
+        alert("Ejercicio 3", f"El numero mas grande de la lista es: {maximo}")
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
